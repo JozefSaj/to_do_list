@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\ToDoList\\ToDoList.csproj": {}
+    "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\ToDoList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\ToDoList\\ToDoList.csproj": {
+    "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\ToDoList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\ToDoList\\ToDoList.csproj",
+        "projectUniqueName": "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\ToDoList.csproj",
         "projectName": "ToDoList",
-        "projectPath": "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\ToDoList\\ToDoList.csproj",
+        "projectPath": "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\ToDoList.csproj",
         "packagesPath": "C:\\Users\\42190\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\ToDoList\\obj\\",
+        "outputPath": "C:\\Users\\42190\\source\\repos\\to_do_list\\ToDoList\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\42190\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,20 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.13, )"
             }
           },
           "imports": [

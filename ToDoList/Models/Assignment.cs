@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ToDoList.Models
 {
-    public class Task
+    public class Assignment
     {
 
         [Key]
@@ -12,7 +12,7 @@ namespace ToDoList.Models
 
         [Required]
         public string Name { get; set; }
-        public string Details { get; set; }
+        public string Details { get; set; } = "";
         public bool Checked { get; set; }
 
         [ForeignKey("HistoryRefId")]
