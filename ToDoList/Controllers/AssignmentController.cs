@@ -15,7 +15,7 @@ namespace ToDoList.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Assignment> tasks = (IEnumerable<Assignment>)_db.Assignments;
+            IEnumerable<Assignment> tasks = _db.Assignments;
             return View(tasks);
         }
 
