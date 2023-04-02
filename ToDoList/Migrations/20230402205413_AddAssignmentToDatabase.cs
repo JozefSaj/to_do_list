@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace ToDoList.Migrations
 {
     /// <inheritdoc />
-    public partial class AddTaskToDatabase : Migration
+    public partial class AddAssignmentToDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +14,7 @@ namespace ToDoList.Migrations
                 name: "Historys",
                 columns: table => new
                 {
-                    HistoryId = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    HistoryId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,8 +30,7 @@ namespace ToDoList.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Details = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Checked = table.Column<bool>(type: "bit", nullable: false),
-                    MyProperty = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    HistoryId = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    HistoryId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -41,7 +39,8 @@ namespace ToDoList.Migrations
                         name: "FK_Assignments_Historys_HistoryId",
                         column: x => x.HistoryId,
                         principalTable: "Historys",
-                        principalColumn: "HistoryId");
+                        principalColumn: "HistoryId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
