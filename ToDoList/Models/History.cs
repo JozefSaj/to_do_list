@@ -5,7 +5,7 @@ namespace ToDoList.Models
     public class History
     {
         [Key]
-        public DateTime HistoryId { get; set; }
+        public String HistoryId { get; set; } = DateTime.Now.ToString("dd-MM-yyyy");
         public IEnumerable<Assignment> Assignment { get; set; }
     }
 }
