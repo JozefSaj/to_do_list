@@ -1,23 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
 namespace ToDoList.Data
 {
-    public class ApplicationDBContext
+    
+    public class ApplicationDbContext : DbContext
     {
-        public class ApplicationDbcontext : DbContext
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
-            public ApplicationDbcontext(DbContextOptions<ApplicationDbcontext> options) : base(options)
-            {
-            }
-
-            //create task table in database
-            public DbSet<Models.Task> Tasks { get; set; }
-
-            //create history table in database
-            public DbSet<Models.History> Historys { get; set; }
-
         }
+
+        //create task table in database
+        public DbSet<Models.Assignment> Assignments { get; set; }
+
+        //create history table in database
+        public DbSet<Models.History> Historys { get; set; }
+
+    }
          
         
-    }
+    
 }
