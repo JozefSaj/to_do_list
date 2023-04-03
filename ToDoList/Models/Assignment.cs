@@ -13,7 +13,6 @@ namespace ToDoList.Models
         [Required]
         public string Name { get; set; }
         public string Details { get; set; }
-        public bool Checked { get; set; } = false;
 
         [ForeignKey("History")]
         public String HistoryId { get; set; }
