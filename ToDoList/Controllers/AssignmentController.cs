@@ -17,7 +17,8 @@ namespace ToDoList.Controllers
         {
             IEnumerable<Assignment> tasks = _db.Assignments;
             IEnumerable<History> historys = _db.Historys;
-            if (historys.ToList().Count == 0 || historys.Last().HistoryId != DateTime.Now.ToString("m-d-yyyy"))
+            string date = DateTime.Now.ToString("d.M.yyyy");
+            if (historys.ToList().Count == 0 || string.Compare(historys.Last().HistoryId, date) != 0)
             {
                 return RedirectToAction("TodayHistory");
             }
@@ -41,9 +42,12 @@ namespace ToDoList.Controllers
         //I forget this and it took me a long time figuring this out
         public IActionResult CreateHistory(History obj)
         {
-            if (obj.HistoryId != DateTime.Now.ToString("d-M-yyyy"))
+            string date = DateTime.Now.ToString("d.M.yyyy");
+            if (string.Compare(date, obj.HistoryId) != 0)
             {
-                ModelState.AddModelError("CustomError", "The history date is not corresponding with today's date!");
+                ModelState.AddModelError("CustomError", @"The history date is not corresponding with today's date!
+                                                          The format should be 'day.month.year' without leading zeros.
+                                                          ");
             }
             if(ModelState.IsValid)
             {
@@ -52,7 +56,35 @@ namespace ToDoList.Controllers
                 return RedirectToAction("Index");
             }
 
+            return View(obj);
+        }
+
+   
+
+        //GET
+
+        public IActionResult CreateAssignment()
+        {
             return View();
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateAssignment(Assignment obj)
+        {
+            if (ModelState.IsValid)
+            {
+                if (obj.Details == null)
+                {
+                    obj.Details = "";
+                }
+                _db.Assignments.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            return View(obj) ;
         }
 
 
