@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "TodayHistory";
+}
+
+<h1>Today's task recorder has not been created!</h1>
+<div class="container p-3">
+    <!--'p-' moves dialognaly left-->
+    <div class="row pt-4">
+        <!--'pt'add a top padding-->
+        <div class="col-6 end text-left">
+            <a asp-controller="Assignment" asp-action="CreateHistory" class="btn btn-primary">
+                <!--"btn btn-primary" bootstrap classes-->
+                <i class="bi bi-plus-circle"></i> &nbsp; Create recorder <!--&nbsp = space -->
+            </a>
+        </div>
+
+    </div>
+    <br />
