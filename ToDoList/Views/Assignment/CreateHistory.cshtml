@@ -20,3 +20,11 @@
     </div>
 </form>
 
+<!--now the validation are done on client sides, so the side is not realoding, when validation is not valid. Thanks to this code-->
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
