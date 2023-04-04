@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\42190\source\repos\to_do_list\ToDoList
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/42190/source/repos/to_do_list/ToDoList/Views/Assignment/CreateAssignment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudFxDcmVhdGVBc3NpZ25tZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/42190/source/repos/to_do_list/ToDoList/Views/Assignment/CreateHistory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudFxDcmVhdGVIaXN0b3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

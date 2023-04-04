@@ -30,20 +30,17 @@ namespace ToDoList.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Details")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HistoryId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("HistoryId");
 
                     b.ToTable("Assignments");
                 });
@@ -56,20 +53,6 @@ namespace ToDoList.Migrations
                     b.HasKey("HistoryId");
 
                     b.ToTable("Historys");
-                });
-
-            modelBuilder.Entity("ToDoList.Models.Assignment", b =>
-                {
-                    b.HasOne("ToDoList.Models.History", null)
-                        .WithMany("Assignment")
-                        .HasForeignKey("HistoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ToDoList.Models.History", b =>
-                {
-                    b.Navigation("Assignment");
                 });
 #pragma warning restore 612, 618
         }
