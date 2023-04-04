@@ -17,14 +17,14 @@ namespace ToDoList.Controllers
         {
             IEnumerable<Assignment> tasks = _db.Assignments;
             IEnumerable<History> historys = _db.Historys;
-            if (historys.ToList().Count == 0)
+            if (historys.ToList().Count == 0 || historys.Last().HistoryId != DateTime.Now.ToString("m-d-yyyy"))
             {
-                return RedirectToAction("IndexForZeroHistorys");
+                return RedirectToAction("TodayHistory");
             }
             return View(tasks);
         }
 
-        public IActionResult IndexForZeroHistorys()
+        public IActionResult TodayHistory()
         {
            return View();
         }
@@ -36,7 +36,10 @@ namespace ToDoList.Controllers
         }
 
         //POST
-        public IActionResult CreateHistoryPost(History obj)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        //I forget this and it took me a long time figuring this out
+        public IActionResult CreateHistory(History obj)
         {
             if (obj.HistoryId != DateTime.Now.ToString("d-M-yyyy"))
             {
@@ -46,6 +49,7 @@ namespace ToDoList.Controllers
             {
                 _db.Historys.Add(obj);
                 _db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
             return View();
