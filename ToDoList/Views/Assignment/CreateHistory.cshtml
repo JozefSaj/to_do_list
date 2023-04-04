@@ -4,13 +4,14 @@
         <!-- margin top(mt)-->
         <div class="row pb-2">
             <h2 class="text-primary">Create today's recorder</h2>
+            <h2>@DateTime.Now.ToString("d.M.yyyy")</h2>
             <hr />
         </div>
-        @*<div asp-validation-summary="All"></div>*@
         <div class="mb-3">
             <label asp-for="HistoryId"></label>
             <input asp-for="HistoryId" class="form-control" />
             <span asp-validation-for="HistoryId" class="text-danger"></span>
+            <div asp-validation-summary="All" class="text-danger"></div>
 
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
