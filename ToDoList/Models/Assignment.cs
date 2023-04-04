@@ -12,10 +12,10 @@ namespace ToDoList.Models
 
         [Required]
         public string Name { get; set; }
-        public string Details { get; set; }
+        public string? Details { get; set; } = "";
 
         [ForeignKey("History")]
-        public String HistoryId { get; set; }
+        public string HistoryId { get; set; } = DateTime.Now.ToString("d.M.yyyy");
         
     }
 }
