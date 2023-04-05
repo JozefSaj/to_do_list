@@ -18,5 +18,17 @@ namespace ToDoList.Controllers
             IEnumerable<History> historys = _db.Historys;
             return View(historys);
         }
+
+        public IActionResult ShowAssignments(History obj)
+        {
+            IEnumerable<Assignment> assignments = _db.Assignments.Where(a => a.HistoryId == obj.HistoryId);
+            return View(assignments);
+        }
+
+        public IActionResult ShowDetail(Assignment obj)
+        {
+
+            return View(obj);
+        }
     }
 }
