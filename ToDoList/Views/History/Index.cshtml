@@ -21,6 +21,12 @@
                 <td width="50%">
                     @obj.HistoryId
                 </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="History" asp-action="ShowAssignments" asp-route-id="@obj.HistoryId"
+                           class="btn btn-primary mx-2"><i class="bi bi-card-list"></i>Previous tasks</a>
+                    </div>
+                </td>
             </tr>
         }
     </tbody>
