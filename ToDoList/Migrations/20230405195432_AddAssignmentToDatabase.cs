@@ -18,6 +18,7 @@ namespace ToDoList.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Details = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Checked = table.Column<bool>(type: "bit", nullable: false),
                     HistoryId = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

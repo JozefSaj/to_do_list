@@ -11,7 +11,7 @@ using ToDoList.Data;
 namespace ToDoList.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230404203600_AddAssignmentToDatabase")]
+    [Migration("20230405195432_AddAssignmentToDatabase")]
     partial class AddAssignmentToDatabase
     {
         /// <inheritdoc />
@@ -31,6 +31,9 @@ namespace ToDoList.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Checked")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Details")
                         .HasColumnType("nvarchar(max)");

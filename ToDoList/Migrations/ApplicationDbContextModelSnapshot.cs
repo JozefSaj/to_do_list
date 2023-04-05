@@ -29,6 +29,9 @@ namespace ToDoList.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Checked")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Details")
                         .HasColumnType("nvarchar(max)");
 
