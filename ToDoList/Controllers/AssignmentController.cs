@@ -1,4 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Security.Policy;
+using System.Threading.Channels;
+using System;
 using ToDoList.Data;
 using ToDoList.Models;
 
@@ -86,7 +91,68 @@ namespace ToDoList.Controllers
             }
             return View(obj) ;
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(int id, bool done)
+        {
+            var assignment = _db.Assignments.Find(id);
+            if (assignment == null)
+            {
+                return NotFound();
+            }
+            assignment.Checked = done;
+            _db.SaveChanges();
 
+            return RedirectToAction(nameof(Index));
+        }
+        //GET
+        public IActionResult Edit(int? id)
+        {
+            var assignment = _db.Assignments.Find(id);
+            if (assignment == null)
+            {
+                return NotFound();
+            }
+            return View(assignment);
+        }
 
+        //POST
+        [HttpPost] //if it is a pasto action we need to write attribute httppost
+        [ValidateAntiForgeryToken] //this aswell
+        public IActionResult Edit(Assignment obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Assignments.Update(obj);
+                _db.SaveChanges(); //goes to the database and save the changes
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+        //GET
+        public IActionResult Delete(int? id)
+        {
+
+            var assignment = _db.Assignments.Find(id);
+            if (assignment == null)
+            {
+                return NotFound();
+            }
+            return View(assignment);
+        }
+
+        //POST
+        [HttpPost] //if it is a post action we need to write attribute httppost
+        [ValidateAntiForgeryToken] //this aswell
+        public IActionResult Delete(Assignment obj)
+        {
+            _db.Assignments.Remove(obj);
+            _db.SaveChanges(); //goes to the database and save the changes
+            return RedirectToAction("Index");
+        }
     }
+
+
 }
+
