@@ -25,6 +25,8 @@ namespace ToDoList.Controllers
             return View(assignments);
         }
 
+
+        //from view ShowAssignments passing obj here to work with, null obj appears
         public IActionResult ShowDetail(Assignment obj)
         {
 
